@@ -8,17 +8,19 @@ import java.util.List;
 
 public class MainModel implements MainMVP.IMainModel {
 
-    FakeBase fakeBase;
+    private final IRepository iRepository;
+
+    public MainModel(IRepository iRepository){
+        this.iRepository = iRepository;
+    }
 
     @Override
     public List<String> getAllValues() {
-        return fakeBase.getInstance().getValues();
+        return iRepository.getValues();
     }
-
-
 
     @Override
     public void insertValue(String value) {
-        FakeBase.getInstance().addValue(value);
+        iRepository.insertValue(value);
     }
 }

@@ -1,5 +1,6 @@
 package com.munstein.demomvp;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,5 +14,14 @@ public class BasicUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void checkMultipleInsertionInFakeBaseUsingMainModel() throws Exception {
+        MainModel mainModel = new MainModel(FakeBase.getInstance());
+        mainModel.insertValue("test value 1");
+        mainModel.insertValue("test value 2");
+        mainModel.insertValue("test value 3");
+        Assert.assertEquals(mainModel.getAllValues().size(), 3);
     }
 }

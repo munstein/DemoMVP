@@ -1,16 +1,14 @@
 package com.munstein.demomvp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,16 +35,15 @@ public class MainActivity extends AppCompatActivity implements MainMVP.IMainView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainPresenter(this, new MainModel());
+        presenter = new MainPresenter(this, new MainModel(FakeBase.getInstance()));
 
         ButterKnife.bind(this);
-
-        button.getText();
 
         stringList = presenter.getAllValues();
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, stringList);
+
         listView.setAdapter(adapter);
     }
 

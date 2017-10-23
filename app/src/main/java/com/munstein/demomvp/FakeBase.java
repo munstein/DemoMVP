@@ -1,12 +1,13 @@
 package com.munstein.demomvp;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by @Munstein on 18/10/2017. --03:04
  */
 
-public class FakeBase {
+public class FakeBase implements IRepository{
 
     private static FakeBase instance = null;
     private ArrayList<String> values;
@@ -22,12 +23,15 @@ public class FakeBase {
         return instance;
     }
 
-    public void addValue(String value){
-        values.add(value);
+
+    @Override
+    public List<String> getValues() {
+        return values;
     }
 
-    public ArrayList<String> getValues(){
-        return values;
+    @Override
+    public void insertValue(String value) {
+        values.add(value);
     }
 
 }
