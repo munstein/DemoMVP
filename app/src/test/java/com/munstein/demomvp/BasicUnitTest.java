@@ -18,7 +18,7 @@ public class BasicUnitTest {
 
     @Test
     public void checkMultipleInsertionInFakeBaseUsingMainModel() throws Exception {
-        MainModel mainModel = new MainModel(FakeBase.getInstance());
+        MainMVP.IMainModel mainModel = new FakeBase();
         mainModel.insertValue("test value 1");
         mainModel.insertValue("test value 2");
         mainModel.insertValue("test value 3");

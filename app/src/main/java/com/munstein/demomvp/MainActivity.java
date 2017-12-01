@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainMVP.IMainView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainPresenter(this, new MainModel(FakeBase.getInstance()));
+        presenter = new MainPresenter(this, new FakeBase());
 
         ButterKnife.bind(this);
 
